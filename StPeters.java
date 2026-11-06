@@ -11,7 +11,12 @@ public class StPeters
     }
     
     public void optimizeEntryFee(){
-        //your code here -- after you write and test runGame() and flip()
+        System.out.println("optimizing!");
+        for(int i=1; i!=10; i++){
+            System.out.println(i);
+            this.entryFee = i;
+            this.tester(100);
+        }
     }
     
     public void tester(int howMany){
@@ -29,11 +34,23 @@ public class StPeters
     
     //returns the amount of money you win in the game
     private int runGame(){
-           //your code here
+        int curflip = flip();
+          while(curflip != 1){
+            curflip = flip();
+            pot *= 2;
+          }
+        return pot;
     }
     
     //code to return a 0 or 1 simulating a flip
     private int flip(){
-        //your code here
+        return r.nextInt(2);
     }    
+
+    public static void main(String[] args) {
+        StPeters sp = new StPeters(0);
+        System.out.println("Running!");
+        sp.optimizeEntryFee();
+        
+    }
 }

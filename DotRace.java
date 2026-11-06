@@ -66,14 +66,20 @@ public class DotRace extends JPanel {
     // whose turn it is to move.
     // finish this
     private Dot whoMoves() {
- 
+        int a = (int)(Math.random()*3);
+        if (a==0)
+            return racer0;
+        else if (a==1)
+            return racer1;
+        else
+            return racer2;
     }
     
     
     //  This method returns the number of pixels that the dot moves
     // finish this
     private int howFar() {
-    
+        return (int)((Math.random()*16) + 5);
     }
     
 
@@ -121,6 +127,8 @@ public class DotRace extends JPanel {
             ex.printStackTrace();
         }
     }
-    
+    public static void main(String[] args) {
+        new DotRace();
+    }
     
 }  // end DotRace
